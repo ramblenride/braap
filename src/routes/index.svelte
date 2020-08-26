@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   let index = {};
-  let names = []
+  let names = [];
 
   onMount(async () => {
     return fetch(
@@ -17,27 +17,19 @@
 </script>
 
 <style>
-  h1 {
-    text-align: center;
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0.5em 0;
-  }
 </style>
 
 <svelte:head>
-  <title>Braap!</title>
+  <title>Braap! - Viewer</title>
 </svelte:head>
 
 <h1>Motorcycle Service Information</h1>
+<h1>Viewer</h1>
 
 <ul>
   {#each names as name}
     <li>
-      <a href="viewer?moto={encodeURIComponent(index[name].location)}">
-        {name}
-      </a>
+      <a href="viewer?moto={encodeURIComponent(index[name].location)}">{name}</a>
     </li>
   {/each}
 </ul>

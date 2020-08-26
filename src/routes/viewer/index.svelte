@@ -1,9 +1,7 @@
 <script context="module">
   export async function preload({ params, query }) {
-    const moto = query["moto"];
-    const res = await this.fetch(
-      `https://ramblenride.github.io/motorcycle-service-db/${moto}`
-    );
+    const name = query["moto"];
+    const res = await this.fetch(`https://ramblenride.github.io/motorcycle-service-db/${name}`);
     const data = await res.json();
     if (res.status === 200) {
       const moto = Object.values(data.motorcycles)[0];
@@ -21,10 +19,6 @@
 </script>
 
 <style>
-  h1 {
-    position: relative;
-    text-align: center;
-  }
   h3 {
     position: relative;
     text-align: center;
@@ -36,7 +30,7 @@
 </style>
 
 <svelte:head>
-  <title>{moto.name}</title>
+  <title>Braap! - {moto.name}</title>
 </svelte:head>
 
 <h1>{moto.name}</h1>

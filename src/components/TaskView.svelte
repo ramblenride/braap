@@ -71,9 +71,9 @@
   <button
     class:active
     class="accordion"
-    on:click={() => {
+    on:click="{() => {
       active = !active;
-    }}>
+    }}">
     {task.name} - {task.description}
     {#if task.level}
       <span class="level {task.level}">{task.level}</span>
@@ -101,7 +101,7 @@
       <ul>
         {#each task.links as attachment}
           <li>
-            <a href={attachment.url}>{attachment.name}</a>
+            <a href="{attachment.url}">{attachment.name}</a>
           </li>
         {/each}
       </ul>
