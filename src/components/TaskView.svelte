@@ -31,9 +31,13 @@
   }
 
   .level {
+    font-size: smaller;
     font-weight: bold;
     float: inline-end;
     text-transform: uppercase;
+    border-width: thin thin;
+    border-style: solid;
+    padding: 2px;
   }
 
   .pro {
@@ -50,7 +54,6 @@
 
   .accordion:after {
     content: "\02795"; /* Unicode character for "plus" sign (+) */
-    font-size: 12px;
     float: right;
   }
 

@@ -31,6 +31,6 @@
 
 <footer>
 	<i><strong>Disclaimer</strong></i><br>
-	<i> Motorcycle service templates are provided by users of the <a href="https://github.com/ramblenride/motorcycle-service-db">Motorcycle Service Database</a>.
-		We cannot be held responsible for any error they may contain. Always refer to the user manual for accurate information.</i>
+	<i> The motorcycle service information is provided by users of the <a href="https://github.com/ramblenride/motorcycle-service-db">Motorcycle Service Database</a>.
+		We cannot be held responsible for any error it may contain. Always refer to the user manual for accurate information.</i>
 </footer>

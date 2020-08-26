@@ -6,9 +6,9 @@
     );
     const data = await res.json();
     if (res.status === 200) {
-      const template = Object.values(data.motorcycles)[0];
-      template.tasks.sort((a, b) => a.name.localeCompare(b.name));
-      return { template: template };
+      const moto = Object.values(data.motorcycles)[0];
+      moto.tasks.sort((a, b) => a.name.localeCompare(b.name));
+      return { moto: moto };
     } else {
       this.error(res.status, data.message);
     }
@@ -17,7 +17,7 @@
 
 <script>
   import TaskView from "../../components/TaskView.svelte";
-  export let template;
+  export let moto;
 </script>
 
 <style>
@@ -36,13 +36,13 @@
 </style>
 
 <svelte:head>
-  <title>{template.name}</title>
+  <title>{moto.name}</title>
 </svelte:head>
 
-<h1>{template.name}</h1>
-<h3>{template.description}</h3>
+<h1>{moto.name}</h1>
+<h3>{moto.description}</h3>
 <hr class="solid" />
 
-{#each template.tasks as task}
+{#each moto.tasks as task}
   <TaskView {task} />
 {/each}

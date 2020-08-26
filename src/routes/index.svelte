@@ -1,20 +1,19 @@
-<script context="module">
-  export async function preload({ params, query }) {
-    return this.fetch(
+<script>
+  import { onMount } from "svelte";
+
+  let index = {};
+  let names = []
+
+  onMount(async () => {
+    return fetch(
       "https://ramblenride.github.io/motorcycle-service-db/motorcycle-service-index.json"
     )
       .then((r) => r.json())
       .then((data) => {
-        return {
-          index: Array.from(Object.values(data)).sort(
-            (a, b) => a.name.localeCompare(b.name))
-        };
+        index = data;
+        names = Array.from(Object.keys(data)).sort();
       });
-  }
-</script>
-
-<script>
-  export let index;
+  });
 </script>
 
 <style>
@@ -34,11 +33,10 @@
 <h1>Motorcycle Service Information</h1>
 
 <ul>
-  {#each index as template}
+  {#each names as name}
     <li>
-      <a
-        href="viewer?moto={encodeURIComponent(template.location)}">
-        {template.name}
+      <a href="viewer?moto={encodeURIComponent(index[name].location)}">
+        {name}
       </a>
     </li>
   {/each}
