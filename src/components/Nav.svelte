@@ -61,7 +61,7 @@
 
   <ul>
     <li>
-      <a rel="prefetch" aria-current="{segment === undefined ? 'page' : undefined}" href=".">
+      <a rel="prefetch" aria-current="{(segment === undefined || segment === 'viewer') ? 'page' : undefined}" href=".">
         viewer
       </a>
     </li>
