@@ -22,7 +22,7 @@
     };
 
     // Strip the first word and replace spaces
-    let filename = `${name}.json`.replace(/\w+ /, "").replace(/ /g, "_").toLowerCase();
+    let filename = `${motorcycle.name}`.replace(/\w+ /, "").trim().replace(/ /g, "_").toLowerCase() + '.json';
 
     download(
       filename,

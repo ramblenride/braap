@@ -30,28 +30,6 @@
     display: none;
   }
 
-  .level {
-    font-size: smaller;
-    font-weight: bold;
-    float: inline-end;
-    text-transform: uppercase;
-    border-width: thin thin;
-    border-style: solid;
-    padding: 2px;
-  }
-
-  .pro {
-    color: #ff0000;
-  }
-
-  .intermediate {
-    color: #f76522;
-  }
-
-  .easy {
-    color: #1a9b00;
-  }
-
   .accordion:after {
     content: "\02795"; /* Unicode character for "plus" sign (+) */
     float: right;
@@ -68,7 +46,7 @@
   }
 </style>
 
-<div class="box">
+<div>
   <button
     class:active
     class="accordion"

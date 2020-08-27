@@ -1,8 +1,19 @@
 <script>
-  export let motorcycle = {};
+  import TaskEditor from "./TaskEditor.svelte";
+
   export let onSubmit;
-  let name = "";
-  let description = "";
+  export let motorcycle = {};
+  motorcycle.tasks = [];
+
+  function handleAddTask() {
+    motorcycle.tasks = motorcycle.tasks.concat({});
+  }
+
+  function handleRemoveTask(task) {
+    motorcycle.tasks = motorcycle.tasks.filter((arrayTask) => {
+      return arrayTask != task;
+    });
+  }
 </script>
 
 <style>
@@ -10,11 +21,6 @@
   *:before,
   *:after {
     box-sizing: border-box;
-  }
-
-  .rounded-input {
-    padding: 10px;
-    border-radius: 10px;
   }
 </style>
 
@@ -27,6 +33,7 @@
       required="true"
       type="text"
       maxlength="40"
+      autocomplete="off"
       placeholder="Ex: Honda Africa Twin 2016-2019" />
   </label>
   <br />
@@ -40,8 +47,16 @@
       maxlength="120"
       placeholder="Ex: All variants of the Honda Africa Twin (CRF1000L) from 2016 to 2019." />
   </label>
-  <br />
-  <br />
-
-  <button type="submit">Download</button>
+  <h3>Tasks:</h3>
+  <p>
+    {#each motorcycle.tasks as task}
+      <TaskEditor onRemove="{handleRemoveTask}" {task} />
+    {/each}
+  </p>
+  <p>
+    <button type="button" on:click="{handleAddTask}">Add Task</button>
+  </p>
+  <p>
+    <button type="submit">Download</button>
+  </p>
 </form>
