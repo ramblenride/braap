@@ -64,6 +64,7 @@
   .notes {
     font-size: 14px;
     padding: 5px 5px;
+    white-space: pre-wrap;
   }
 </style>
 
@@ -108,7 +109,6 @@
     {/if}
     {#if task.notes}
       Notes:
-      <!-- FIXME: Notes are not formatted correctly (\n not handled) -->
       <div class="notes">{task.notes}</div>
     {/if}
   </div>
