@@ -57,6 +57,6 @@
     <button type="button" on:click="{handleAddTask}">Add Task</button>
   </p>
   <p>
-    <button type="submit">Download</button>
+    <button type="submit">Download (as JSON)</button>
   </p>
 </form>

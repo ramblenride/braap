@@ -1,38 +1,19 @@
 <script>
   import MotorcycleEdit from "../../components/MotorcycleEdit.svelte";
+  import {download, getFilename, motoToString} from "../_helpers/download.js";
 
   let motorcycle = {};
 
-  function download(filename, text) {
-    let element = document.createElement("a");
-    element.setAttribute("href", "data:application/json;charset=utf-8," + encodeURIComponent(text));
-    element.setAttribute("download", filename);
-
-    element.style.display = "none";
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
-  }
-
-  function handleSave() {
+  function handleDownload() {
     const template = {
       motorcycles: [motorcycle],
     };
 
-    // Strip the first word and replace spaces
-    let filename = `${motorcycle.name}`.replace(/\w+ /, "").trim().replace(/ /g, "_").toLowerCase() + '.json';
+    const filename = getFilename(motorcycle);
 
     download(
       filename,
-      JSON.stringify(
-        template,
-        (key, value) => {
-          if (value !== null && String(value).length != 0 && String(value) !== "NaN") return value;
-        },
-        2
-      )
+      motoToString(motorcycle)
     );
   }
 </script>
@@ -48,4 +29,4 @@
 <h1>Motorcycle Service Information</h1>
 <h1>Creator</h1>
 
-<MotorcycleEdit onSubmit="{handleSave}" {motorcycle} />
+<MotorcycleEdit onSubmit="{handleDownload}" {motorcycle} />

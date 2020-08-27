@@ -15,7 +15,21 @@
 
 <script>
   import MotorcycleView from "../../components/MotorcycleView.svelte";
+  import {download, getFilename, motoToString} from "../_helpers/download.js";
   export let moto;
+
+  function handleDownload() {
+    const template = {
+      motorcycles: [moto],
+    };
+
+    const filename = getFilename(moto);
+
+    download(
+      filename,
+      motoToString(moto)
+    );
+  }
 </script>
 
 <style>
@@ -27,3 +41,4 @@
 </svelte:head>
 
 <MotorcycleView {moto} />
+<button type="submit" on:click="{handleDownload}">Download (as JSON)</button>
