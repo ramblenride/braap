@@ -1,5 +1,5 @@
 <script>
-  import LinkEditor from "./LinkEditor.svelte";
+  import LinkEdit from "./LinkEdit.svelte";
 
   export let onRemove;
   export let task = {};
@@ -184,7 +184,7 @@
     <h3>Links:</h3>
     <p>
       {#each task.links as link}
-        <LinkEditor onRemove="{handleRemoveLink}" {link} />
+        <LinkEdit onRemove="{handleRemoveLink}" {link} />
       {/each}
     </p>
     <p>

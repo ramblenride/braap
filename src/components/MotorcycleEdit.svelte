@@ -1,5 +1,5 @@
 <script>
-  import TaskEditor from "./TaskEditor.svelte";
+  import TaskEdit from "./TaskEdit.svelte";
 
   export let onSubmit;
   export let motorcycle = {};
@@ -50,7 +50,7 @@
   <h3>Tasks:</h3>
   <p>
     {#each motorcycle.tasks as task}
-      <TaskEditor onRemove="{handleRemoveTask}" {task} />
+      <TaskEdit onRemove="{handleRemoveTask}" {task} />
     {/each}
   </p>
   <p>
