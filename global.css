@@ -5,7 +5,7 @@ body {
   font-size: 14px;
   line-height: 1.5;
   color: #becdda;
-  background-color: #1b3e56;
+  background-color: #00182d;
 }
 
 h1,
@@ -31,11 +31,24 @@ a {
   color: inherit;
 }
 
+button {
+  font-size: large;
+  color: #becdda;
+  background-color: #1b3e56;
+  border: none;
+  padding: 16px 24px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+}
+
 button[type="submit"] {
   font-size: large;
   background-color: #e69c24;
   border: none;
-  color: #eff2f6;
+  color: #ecf4f9;
   padding: 16px 24px;
   text-decoration: none;
   margin: 4px 2px;
@@ -44,7 +57,7 @@ button[type="submit"] {
   border-radius: 10px;
 }
 
-input {
+input, select, textarea {
   border: 2px solid white;
   -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
@@ -55,6 +68,33 @@ input {
   width: 100%;
   font-family: inherit;
   font-size: inherit;
+}
+
+.rounded-input {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.level {
+  font-size: smaller;
+  font-weight: bold;
+  float: inline-end;
+  text-transform: uppercase;
+  border-width: thin thin;
+  border-style: solid;
+  padding: 2px;
+}
+
+.pro {
+  color: #ff0000;
+}
+
+.intermediate {
+  color: #f76522;
+}
+
+.easy {
+  color: #1a9b00;
 }
 
 code {
