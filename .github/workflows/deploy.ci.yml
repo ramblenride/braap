@@ -1,7 +1,7 @@
-name: Build CI
+name: Build & Deploy CI
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 
@@ -18,3 +18,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run test
+      - run: npm run deploy
