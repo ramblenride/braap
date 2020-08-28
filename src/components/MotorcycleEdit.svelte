@@ -3,7 +3,7 @@
 
   export let onSubmit;
   export let motorcycle = {};
-  motorcycle.tasks = [];
+  motorcycle.tasks = motorcycle.tasks === undefined ? [] : motorcycle.tasks;
 
   function handleAddTask() {
     motorcycle.tasks = motorcycle.tasks.concat({});

@@ -3,7 +3,7 @@
 
   export let onRemove;
   export let task = {};
-  task.links = [];
+  task.links = task.links === undefined ? [] : task.links;
   let active = true;
 
   function handleAddLink() {
@@ -75,7 +75,6 @@
 
   .halfSize {
     flex: 1;
-    width: 50%;
   }
 </style>
 
@@ -130,22 +129,12 @@
     <div class="horizontalForms">
       <label class="halfSize">
         Fixed distance (KM):
-        <input
-          bind:value="{task.km}"
-          class="rounded-input"
-          type="number"
-          style="width: 98%"
-          maxlength="7" />
+        <input bind:value="{task.km}" class="rounded-input" type="number" maxlength="7" />
       </label>
 
-      <label class="halfSize">
+      <label class="halfSize" style="margin-left: 5px">
         Fixed months:
-        <input
-          bind:value="{task.months}"
-          class="rounded-input"
-          type="number"
-          style="width: 98%"
-          maxlength="4" />
+        <input bind:value="{task.months}" class="rounded-input" type="number" maxlength="4" />
       </label>
     </div>
 
@@ -156,17 +145,16 @@
           bind:value="{task.intervalKm}"
           class="rounded-input"
           type="number"
-          style="width: 98%"
+          style="margin-right: 5px"
           maxlength="7" />
       </label>
 
-      <label class="halfSize">
+      <label class="halfSize" style="margin-left: 5px">
         Recurring months:
         <input
           bind:value="{task.intervalMonths}"
           class="rounded-input"
           type="number"
-          style="width: 98%"
           maxlength="4" />
       </label>
     </div>

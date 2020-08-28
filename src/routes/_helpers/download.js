@@ -11,7 +11,11 @@ export function download(filename, text) {
   document.body.removeChild(element);
 }
 
-export function motoToString(template) {
+export function motorcycleToJson(moto) {
+  const template = {
+    motorcycles: [moto],
+  };
+
   return JSON.stringify(
     template,
     (key, value) => {

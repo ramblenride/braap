@@ -15,20 +15,13 @@
 
 <script>
   import MotorcycleView from "../../components/MotorcycleView.svelte";
-  import {download, getFilename, motoToString} from "../_helpers/download.js";
+  import { download, getFilename, motorcycleToJson } from "../_helpers/download.js";
   export let moto;
 
   function handleDownload() {
-    const template = {
-      motorcycles: [moto],
-    };
-
     const filename = getFilename(moto);
 
-    download(
-      filename,
-      motoToString(moto)
-    );
+    download(filename, motorcycleToJson(moto));
   }
 </script>
 

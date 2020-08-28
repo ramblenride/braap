@@ -1,20 +1,13 @@
 <script>
   import MotorcycleEdit from "../../components/MotorcycleEdit.svelte";
-  import {download, getFilename, motoToString} from "../_helpers/download.js";
+  import { download, getFilename, motorcycleToJson } from "../_helpers/download.js";
 
   let motorcycle = {};
 
   function handleDownload() {
-    const template = {
-      motorcycles: [motorcycle],
-    };
-
     const filename = getFilename(motorcycle);
 
-    download(
-      filename,
-      motoToString(motorcycle)
-    );
+    download(filename, motorcycleToJson(motorcycle));
   }
 </script>
 

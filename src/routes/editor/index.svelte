@@ -1,45 +1,59 @@
 <script>
-  let name = "";
-  let description = "";
+  import MotorcycleEdit from "../../components/MotorcycleEdit.svelte";
+  import { download, getFilename, motorcycleToJson } from "../_helpers/download.js";
 
-  function download(filename, text) {
-    let element = document.createElement("a");
-    element.setAttribute("href", "data:application/json;charset=utf-8," + encodeURIComponent(text));
-    element.setAttribute("download", filename);
+  let files = [];
+  let motorcycle;
 
-    element.style.display = "none";
-    document.body.appendChild(element);
+  function handleDownload() {
+    const filename = getFilename(motorcycle);
 
-    element.click();
-
-    document.body.removeChild(element);
+    download(filename, motorcycleToJson(motorcycle));
   }
 
-  function handleSave() {
-    let motorcycle = {
-      name: name,
-      description: description,
-      tasks: [],
+  function handleImport() {
+    if (files.length <= 0) {
+      return false;
+    }
+
+    const reader = new FileReader();
+    reader.onerror = function (e) {
+      alert("Failed to load the file");
+    };
+    reader.onload = function (e) {
+      try {
+        const tempMoto = JSON.parse(e.target.result);
+        if (tempMoto["motorcycles"] === undefined || tempMoto["motorcycles"].length != 1) {
+          alert("Invalid JSON file. Could not find the motorcycle list.");
+        } else {
+          motorcycle = tempMoto.motorcycles[0];
+          if (motorcycle["name"] === undefined || motorcycle["description"] === undefined) {
+            motorcycle = undefined;
+            alert("Invalid JSON file. Could not find a valid motorcycle.");
+          }
+        }
+      } catch (e) {
+        alert("Failed to parse imported JSON file:", e);
+      }
     };
 
-    const template = {
-      motorcycles: [motorcycle],
-    };
-
-    download(
-      `${name}.json`,
-      JSON.stringify(
-        template,
-        (key, value) => {
-          if (value !== null && String(value).length != 0 && String(value) !== "NaN") return value;
-        },
-        2
-      )
-    );
+    reader.readAsText(files.item(0));
   }
 </script>
 
 <style>
+  .horizontalForms {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .largeSize {
+    flex: 3;
+  }
+
+  .smallSize {
+    flex: 1;
+  }
 </style>
 
 <svelte:head>
@@ -48,6 +62,13 @@
 
 <h1>Motorcycle Service Information</h1>
 <h1>Editor</h1>
-<br />
-<br />
-<h2>Coming soon...</h2>
+
+{#if motorcycle !== undefined}
+  <MotorcycleEdit onSubmit="{handleDownload}" {motorcycle} />
+{:else}
+  <h2>Import from an existing file</h2>
+  <div class="horizontalForms">
+  <input type="file" class="rounded-input largeSize" accept="application/json" bind:files />
+  <button type="submit" class="smallSize" on:click="{handleImport}">Import</button>
+</div>
+{/if}
