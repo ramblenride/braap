@@ -127,19 +127,19 @@
     </label>
 
     <div class="horizontalForms">
-      <label class="halfSize">
+      <label class="halfSize" style="margin-top: auto;">
         Fixed distance (KM):
         <input bind:value="{task.km}" class="rounded-input" type="number" maxlength="7" />
       </label>
 
-      <label class="halfSize" style="margin-left: 5px">
+      <label class="halfSize" style="margin-left: 5px; margin-top: auto;">
         Fixed months:
         <input bind:value="{task.months}" class="rounded-input" type="number" maxlength="4" />
       </label>
     </div>
 
     <div class="horizontalForms">
-      <label class="halfSize">
+      <label class="halfSize" style="margin-top: auto;">
         Recurring distance (KM):
         <input
           bind:value="{task.intervalKm}"
@@ -149,7 +149,7 @@
           maxlength="7" />
       </label>
 
-      <label class="halfSize" style="margin-left: 5px">
+      <label class="halfSize" style="margin-left: 5px; margin-top: auto;">
         Recurring months:
         <input
           bind:value="{task.intervalMonths}"
