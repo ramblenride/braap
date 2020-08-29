@@ -1,7 +1,17 @@
 <script>
+  import { onMount } from "svelte";
+
   export let onRemove;
   export let link = {};
   let active = true;
+  let nameField;
+
+  onMount(() => {
+    // Workaround: Changing focus on mount breaks a11y so Sapper doesn't support it.
+    setTimeout(() => {
+      nameField.focus();
+    }, 200);
+  });
 </script>
 
 <style>
@@ -72,6 +82,7 @@
     <label>
       Name:
       <input
+        bind:this="{nameField}"
         bind:value="{link.name}"
         class="rounded-input"
         required="true"

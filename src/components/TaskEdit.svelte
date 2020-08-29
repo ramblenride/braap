@@ -1,10 +1,19 @@
 <script>
   import LinkEdit from "./LinkEdit.svelte";
+  import { onMount } from "svelte";
 
   export let onRemove;
   export let task = {};
   task.links = task.links === undefined ? [] : task.links;
   let active = true;
+  let nameField;
+
+  onMount(() => {
+    // Workaround: Changing focus on mount breaks a11y so Sapper doesn't support it.
+    setTimeout(() => {
+      nameField.focus();
+    }, 200);
+  });
 
   function handleAddLink() {
     task.links = task.links.concat({});
@@ -97,6 +106,7 @@
     <label>
       Name:
       <input
+        bind:this={nameField}
         bind:value="{task.name}"
         class="rounded-input"
         required="true"
