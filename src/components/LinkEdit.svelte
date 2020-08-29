@@ -1,8 +1,10 @@
 <script>
   import { onMount } from "svelte";
+  import { createEventDispatcher } from 'svelte';
 
   export let onRemove;
   export let link = {};
+  const dispatch = createEventDispatcher();
   let active = true;
   let nameField;
 
@@ -12,6 +14,12 @@
       nameField.focus();
     }, 200);
   });
+
+  function handleInvalid() {
+    dispatch('invalid');
+    // Expand the panel when an input is flagged as invalid
+    active = true;
+  }
 </script>
 
 <style>
@@ -84,6 +92,7 @@
       <input
         bind:this="{nameField}"
         bind:value="{link.name}"
+        on:invalid="{handleInvalid}"
         class="rounded-input"
         required="true"
         type="text"
@@ -96,6 +105,7 @@
       URL:
       <input
         bind:value="{link.url}"
+        on:invalid="{handleInvalid}"
         class="rounded-input"
         required="true"
         type="url"

@@ -24,6 +24,11 @@
       return arrayLink != link;
     });
   }
+
+  function handleInvalid() {
+    // Expand the panel when an input is flagged as invalid
+    active = true;
+  }
 </script>
 
 <style>
@@ -108,6 +113,7 @@
       <input
         bind:this={nameField}
         bind:value="{task.name}"
+        on:invalid="{handleInvalid}"
         class="rounded-input"
         required="true"
         type="text"
@@ -120,6 +126,7 @@
       Description:
       <input
         bind:value="{task.description}"
+        on:invalid="{handleInvalid}"
         class="rounded-input"
         required="true"
         type="text"
@@ -182,7 +189,7 @@
     <h3>Links:</h3>
     <p>
       {#each task.links as link}
-        <LinkEdit onRemove="{handleRemoveLink}" {link} />
+        <LinkEdit onRemove="{handleRemoveLink}" on:invalid="{handleInvalid}" {link} />
       {/each}
     </p>
     <p>
