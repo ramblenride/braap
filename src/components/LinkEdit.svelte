@@ -57,10 +57,14 @@
   .accordion:after {
     content: "\02795"; /* Unicode character for "plus" sign (+) */
     float: right;
+    color: transparent;
+    text-shadow: 0 0 0 grey;
   }
 
   .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
+    color: transparent;
+    text-shadow: 0 0 0 grey;
   }
 
   .close {
@@ -71,6 +75,7 @@
     color: #ffffff;
     text-shadow: 0 1px 0 #000000;
     opacity: 0.5;
+    margin-right: 15px;
   }
 </style>
 
