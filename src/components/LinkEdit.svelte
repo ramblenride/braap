@@ -101,7 +101,7 @@
         class="rounded-input"
         required="true"
         type="text"
-        maxlength="32"
+        maxlength="40"
         autocomplete="off"
         placeholder="Ex: Video how-to" />
     </label>
@@ -114,7 +114,7 @@
         class="rounded-input"
         required="true"
         type="url"
-        maxlength="64"
+        maxlength="120"
         placeholder="Ex: https://example.com" />
     </label>
   </div>
