@@ -17,10 +17,14 @@
 </script>
 
 <style>
+  li {
+    padding: 5px;
+  }
 </style>
 
 <svelte:head>
   <title>Braap! - Viewer</title>
+  <meta name="description" content="A viewer for motorcycle service intervals" />
 </svelte:head>
 
 <h1>Motorcycle Service Information</h1>

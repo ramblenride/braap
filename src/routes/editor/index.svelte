@@ -58,6 +58,7 @@
 
 <svelte:head>
   <title>Braap! - Editor</title>
+  <meta name="description" content="An editor for motorcycle service intervals">
 </svelte:head>
 
 <h1>Motorcycle Service Information</h1>

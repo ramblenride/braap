@@ -31,6 +31,7 @@
 
 <svelte:head>
   <title>Braap! - {moto.name}</title>
+  <meta name="description" content="A viewer for motorcycle service intervals">
 </svelte:head>
 
 <MotorcycleView {moto} />
