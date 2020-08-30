@@ -18,7 +18,7 @@
     max-width: 56em;
     text-align: center;
     padding: 2em;
-    font-size: 0.8em;
+    font-size: 1.0em;
     margin: 0 auto;
   }
 </style>
