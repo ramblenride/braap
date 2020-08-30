@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --basepath braap --legacy",
+    "export": "sapper export --basepath braap",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
@@ -32,10 +32,10 @@
     "cypress": "^5.0.0",
     "gh-pages": "^3.1.0",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.3.4",
+    "rollup": "^2.26.8",
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^6.1.0",
-    "sapper": "^0.28.0",
+    "sapper": "^0.28.3",
     "svelte": "^3.17.3"
   }
 }
