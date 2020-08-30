@@ -33,10 +33,14 @@
   .accordion:after {
     content: "\02795"; /* Unicode character for "plus" sign (+) */
     float: right;
+    color: transparent;
+    text-shadow: 0 0 0 grey;
   }
 
   .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
+    color: transparent;
+    text-shadow: 0 0 0 grey;
   }
 
   .notes {
