@@ -27,6 +27,12 @@ h1 {
   margin: 0 0 0.5em 0;
 }
 
+h2 {
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+}
+
 a {
   color: inherit;
 }
