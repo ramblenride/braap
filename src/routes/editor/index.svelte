@@ -62,12 +62,12 @@
 </svelte:head>
 
 <h1>Motorcycle Service Information</h1>
-<h1>Editor</h1>
+<h2>Editor</h2>
 
 {#if motorcycle !== undefined}
   <MotorcycleEdit onSubmit="{handleDownload}" {motorcycle} />
 {:else}
-  <h2>Import from an existing file</h2>
+  <h3>Import from an existing file</h3>
   <div class="horizontalForms">
   <input type="file" class="rounded-input largeSize" accept="application/json" bind:files />
   <button type="submit" class="smallSize" on:click="{handleImport}">Import</button>

@@ -21,9 +21,9 @@
     margin: 1em auto;
   }
 
-  @media (min-width: 480px) {
+  @media (min-width: 400px) {
     h1 {
-      font-size: 4em;
+      font-size: 16px;
     }
   }
 </style>

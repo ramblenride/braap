@@ -8,12 +8,12 @@ describe('Braap', () => {
 	});
 
 	it('navigates to /creator', () => {
-		cy.get('nav a').contains('creator').click();
+		cy.get('nav a').contains('create').click();
 		cy.url().should('include', '/creator');
 	});
 
 	it('navigates to /editor', () => {
-		cy.get('nav a').contains('editor').click();
+		cy.get('nav a').contains('edit').click();
 		cy.url().should('include', '/editor');
 	});
 });

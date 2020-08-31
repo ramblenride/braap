@@ -61,18 +61,18 @@
 
   <ul>
     <li>
-      <a rel="prefetch" aria-current="{(segment === undefined || segment === 'viewer') ? 'page' : undefined}" href=".">
-        viewer
+      <a rel="prefetch" aria-current="{segment === 'viewer' ? 'page' : undefined}" href="viewer">
+        view
       </a>
     </li>
     <li>
       <a rel="prefetch" aria-current="{segment === 'editor' ? 'page' : undefined}" href="editor">
-        editor
+        edit
       </a>
     </li>
     <li>
       <a rel="prefetch" aria-current="{segment === 'creator' ? 'page' : undefined}" href="creator">
-        creator
+        create
       </a>
     </li>
   </ul>

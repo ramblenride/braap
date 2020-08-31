@@ -1,6 +1,14 @@
 <script>
   import TaskView from "./TaskView.svelte";
-  export let moto;
+  import { download, getFilename, motorcycleToJson } from "../routes/_helpers/download.js";
+
+  export let motorcycle;
+
+  function handleDownload() {
+    const filename = getFilename(motorcycle);
+
+    download(filename, motorcycleToJson(motorcycle));
+  }
 </script>
 
 <style>
@@ -14,10 +22,12 @@
   }
 </style>
 
-<h1>{moto.name}</h1>
-<h3>{moto.description}</h3>
+<h1>{motorcycle.name}</h1>
+<h3>{motorcycle.description}</h3>
 <hr class="solid" />
 
-{#each moto.tasks as task}
+{#each motorcycle.tasks as task}
   <TaskView {task} />
 {/each}
+
+<button type="submit" on:click="{handleDownload}">Download (as JSON)</button>
