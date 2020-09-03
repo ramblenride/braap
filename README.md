@@ -1,5 +1,7 @@
 # Braap
 
+![Braap](logo/braap-circle.png)
+
 _Braap!_ is a viewer and editor for templates from the [Motorcycle Service Database](https://github.com/ramblenride/motorcycle-service-db).
 
 ## Running the project
