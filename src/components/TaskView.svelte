@@ -58,8 +58,8 @@
       active = !active;
     }}">
     {task.name} - {task.description}
-    {#if task.level}
-      <span class="level {task.level}">{task.level}</span>
+    {#if task.technicalLevel}
+      <span class="level {task.technicalLevel}">{task.technicalLevel}</span>
     {/if}
   </button>
 

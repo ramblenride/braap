@@ -106,8 +106,8 @@
       active = !active;
     }}">
     {task.name || ''} - {task.description || ''}
-    {#if task.level}
-      <span class="level {task.level}">{task.level}</span>
+    {#if task.technicalLevel}
+      <span class="level {task.technicalLevel}">{task.technicalLevel}</span>
     {/if}
   </button>
 
@@ -140,7 +140,7 @@
     </label>
     <label>
       Technical Level:
-      <select class="rounded-input" bind:value="{task.level}">
+      <select class="rounded-input" bind:value="{task.technicalLevel}">
         <option selected></option>
         <option>easy</option>
         <option>intermediate</option>
