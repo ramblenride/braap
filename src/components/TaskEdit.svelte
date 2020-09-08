@@ -114,7 +114,7 @@
   <div class="panel {!active ? 'hidden' : ''}">
     <span class="close" on:click="{onRemove(task)}">x</span>
     <label>
-      Name:
+      Name / Theme:
       <input
         bind:this={nameField}
         bind:value="{task.name}"
